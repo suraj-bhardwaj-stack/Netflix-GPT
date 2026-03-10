@@ -2,6 +2,8 @@ import { useRef, useState } from "react";
 import theBg from '../assets/Netflix-bg.jpg'
 import Header from "./Header";
 import formValidationCheck from "../utils/formValidationCheck";
+import userAuth from "../utils/UserAuth";
+
 
 const Login = () => {
     const [isLogin , setIsLogin] = useState(true);
@@ -16,7 +18,12 @@ const Login = () => {
         e.preventDefault()
         const Username = isLogin ? null : fullName.current.value;
         const errMessage = formValidationCheck(Username , email.current.value, password.current.value)
-        setFormError(errMessage)        
+        console.log(Username , email.current.value, password.current.value , "=>>")
+        setFormError(errMessage)
+        if(errMessage) return;
+
+        userAuth(isLogin , email.current.value, password.current.value , setFormError)
+        
     }
     return(
         <div className="login-wraper">
