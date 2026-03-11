@@ -1,11 +1,21 @@
-import { createUserWithEmailAndPassword , signInWithEmailAndPassword} from "firebase/auth";
+import { createUserWithEmailAndPassword , signInWithEmailAndPassword, updateProfile} from "firebase/auth";
 import { auth } from "../utils/firebase";
-const userAuth = (isLogin , email , password , setFormError) => {
+import { useDispatch } from "react-redux";
+import { addUser } from "./userSlice";
+const userAuth = (isLogin , email , password , setFormError, userName ,dispatch) => {
       if(!isLogin){
             createUserWithEmailAndPassword(auth,  email, password)
                 .then((userCredential) => {
                     // Signed up 
                     const user = userCredential.user;
+                    updateProfile(user, {
+                    displayName: userName, photoURL: "https://example.com/jane-q-user/profile.jpg"
+                    }).then(() => {
+                    const {uid, email, displayName } = user;
+                    dispatch(addUser({uid :uid, email:email, displayName:displayName}))
+                    }).catch((error) => {
+                    setFormError(error)
+                    });
                     console.log(user)
                     // ...
                 })
