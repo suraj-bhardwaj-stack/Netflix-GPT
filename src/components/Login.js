@@ -21,9 +21,7 @@ const Login = () => {
         console.log(Username , email.current.value, password.current.value , "=>>")
         setFormError(errMessage)
         if(errMessage) return;
-
         userAuth(isLogin , email.current.value, password.current.value , setFormError)
-        
     }
     return(
         <div className="login-wraper">
