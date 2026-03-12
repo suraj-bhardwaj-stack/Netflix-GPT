@@ -2,10 +2,15 @@ import { useRef, useState } from "react";
 import theBg from '../assets/Netflix-bg.jpg'
 import Header from "./Header";
 import formValidationCheck from "../utils/formValidationCheck";
+import userAuth from "../utils/UserAuth";
+import { useDispatch } from "react-redux";
+
+
 
 const Login = () => {
     const [isLogin , setIsLogin] = useState(true);
     const [formError , setFormError] = useState(null);
+    const dispatch = useDispatch()
     const fullName = useRef(null)
     const email = useRef(null)
     const password = useRef(null)
@@ -16,7 +21,10 @@ const Login = () => {
         e.preventDefault()
         const Username = isLogin ? null : fullName.current.value;
         const errMessage = formValidationCheck(Username , email.current.value, password.current.value)
-        setFormError(errMessage)        
+        console.log(Username , email.current.value, password.current.value , "=>>")
+        setFormError(errMessage)
+        if(errMessage) return;
+        userAuth(isLogin , email.current.value, password.current.value , setFormError , Username , dispatch)
     }
     return(
         <div className="login-wraper">
