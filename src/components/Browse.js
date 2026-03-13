@@ -1,6 +1,24 @@
 import Header from "./Header";
 import theBg from '../assets/Netflix-bg.jpg'
+import { useEffect } from "react";
+import { API_OPTIONS , THE_MOVIE_API } from "../utils/constant";
+import { useDispatch } from "react-redux";
+import { callNowPlayingMovie } from "../utils/MovieSlice";
+
 const Browse = () =>{
+
+    const dispatch = useDispatch()
+
+    const fetchMovieNow = async ()=>{
+        const data =  await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${THE_MOVIE_API}`, API_OPTIONS)
+        const json = await data.json()
+        console.log(json.results)
+        dispatch(callNowPlayingMovie(json.results))
+    }
+    useEffect(()=>{
+        fetchMovieNow()
+    }, [])
+
     return(
         <div className="browse-wraper">
             <Header/>
