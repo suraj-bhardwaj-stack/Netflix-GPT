@@ -7,3 +7,5 @@ export const API_OPTIONS = {
 };
 
 export const THE_MOVIE_API = '3479af5fa306f9728fa3ea50234ca154';
+
+export const POSTER_URL = 'https://image.tmdb.org/t/p/w300/'
