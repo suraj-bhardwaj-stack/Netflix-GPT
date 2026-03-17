@@ -36,7 +36,7 @@ const handleSignOut = ()=>{
 
 console.log(auth)
     return(
-        <div className="header-wrapper py-2 px-3 z-10 relative flex items-center justify-between">
+        <div className="header-wrapper w-full py-2 px-3 flex items-center justify-between absolute top-0 z-10">
             <div className="the-logo w-40">
                 <img className='w-40' src={netflixLogo} alt='netfilx-logo' />
             </div>

@@ -1,8 +1,8 @@
 const VideoTitle = ({id , overview , title}) => {
     
     return(
-        <div className="title-wrapper h-[100%] w-[100%]  absolute top-0 z-10">
-           <div className="inner-wrapper absolute top-[50%] left-[51%] translate-x-[-100%] translate-y-[-50%]">
+        <div className="title-wrapper h-[100%] w-[100%]  absolute top-0 z-0">
+           <div className="inner-wrapper absolute top-[45%] left-[51%] translate-x-[-100%] translate-y-[-50%]">
                 <h1 className="text-4xl font-bold text-white">{title}</h1>
                 <p className="w-[50%] mt-4 text-white">{overview}</p>
 
