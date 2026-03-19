@@ -7,3 +7,11 @@ export const API_OPTIONS = {
 };
 
 export const THE_MOVIE_API = '3479af5fa306f9728fa3ea50234ca154';
+
+export const POSTER_URL = 'https://image.tmdb.org/t/p/w200/'
+
+export const SUPPORTED_LANGUAGE = [
+  {identifier : 'en' , name : "English"},
+  {identifier : 'hi' , name : "Hindi"},
+  {identifier : 'es' , name : "Spanish"},
+]
