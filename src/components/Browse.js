@@ -4,18 +4,26 @@ import MainContainer from "./MainContainer";
 import { useSelector } from "react-redux";
 import usePopularMovies from "../Hooks/usePopularMovies";
 import useUpcomingMovies from "../Hooks/useUpcoming";
+import GptSearch from "./GptSearch";
 
 const Browse = () =>{
      useNowPlayingMovies()
      usePopularMovies()
      useUpcomingMovies()
      const movies = useSelector(store => store.Movie.nowPlayingMovie)
+     const showGpt = useSelector(store => store.gpt.showGpt)
+     console.log(showGpt);
+     
     if(!movies) return
     
     return(
         <div className="browse-wraper">
             <Header/>
-            <MainContainer title={movies}/>
+            {
+                showGpt ? <GptSearch/> : <MainContainer title={movies}/>
+            }
+            
+            
         </div>
     )
 }

@@ -29,7 +29,7 @@ const VideoContainer = ({id}) =>{
 
     return(
         <div className="videoContainer-wrapper w-[100%] aspect-[16/7] bg-gradient-to-r from-black-70">
-            <iframe className="w-[100%] aspect-[16/7] " src={`https://www.youtube.com/embed/${movieApi.key}?autoplay=1&loop=1&playlist=${movieApi.key}&controls=0`}
+            <iframe className="w-[100%] aspect-[16/7] " src={`https://www.youtube.com/embed/${movieApi.key}?autoplay=1&mute=1&loop=1&playlist=${movieApi.key}&controls=0`}
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
